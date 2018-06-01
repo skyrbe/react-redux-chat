@@ -64,6 +64,7 @@ module.exports = {
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: 'static/js/[name].[chunkhash:8].js',
+    libraryTarget: 'umd',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
@@ -339,4 +340,8 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
+  externals: {
+    'react': 'react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    'react-dom': 'react-dom'
+  }
 };

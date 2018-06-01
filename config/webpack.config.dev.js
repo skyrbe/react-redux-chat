@@ -59,6 +59,7 @@ module.exports = {
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
     filename: 'static/js/bundle.js',
+    libraryTarget: 'umd',
     // There are also additional JS chunk files if you use code splitting.
     chunkFilename: 'static/js/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
@@ -259,4 +260,8 @@ module.exports = {
   performance: {
     hints: false,
   },
+  externals: {
+    'react': 'react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    'react-dom': 'react-dom'
+  }
 };
